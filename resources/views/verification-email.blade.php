@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>IPT W3 Email Verification</h2>
+    <h2>GDMOTORS</h2>
     <p>
         Welcome {{$user->name}}!
     </p>
