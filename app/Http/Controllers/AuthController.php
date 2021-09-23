@@ -52,7 +52,7 @@ class AuthController extends Controller
         Nexmo::message()->send([
             'to'   => $user->phone,
             'from' => '16105552344',
-            'text' => 'Using the facade to send a message.'
+            'text' => 'Please check your email for verification'
         ]);
         return redirect('/login')->with('Message', 'Your account has been created. Please check your email for verification.');
     }
