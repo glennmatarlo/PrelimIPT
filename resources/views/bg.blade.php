@@ -1,0 +1,1 @@
+<div style="background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%), url(https://cdn.wallpapersafari.com/36/80/EKWszP.gif);background-attachment:fixed; background-repeat: no-repeat; background-position:center;">
