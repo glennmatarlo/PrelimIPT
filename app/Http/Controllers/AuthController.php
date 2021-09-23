@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use Nexmo\Laravel\Facade\Nexmo;
+use App\Notifications\AccountCreatedSMS;
 
 class AuthController extends Controller
 {
@@ -27,8 +28,9 @@ class AuthController extends Controller
     public function register(Request $request){
         $request->validate([
             'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
             'password' => 'required|string',
-            'email' => 'required|email'
         ]);
         
         $token = Str::random(24);
@@ -36,6 +38,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => bcrypt($request->password),
             'remember_token' => $token
         ]);
@@ -47,9 +50,9 @@ class AuthController extends Controller
         });
 
         Nexmo::message()->send([
-            'to'=> $request->phone,
+            'to'   => $user->phone,
             'from' => '16105552344',
-            'text'=>'Please check your email for verificatio mail.google.com',
+            'text' => 'Using the facade to send a message.'
         ]);
         return redirect('/login')->with('Message', 'Your account has been created. Please check your email for verification.');
     }
