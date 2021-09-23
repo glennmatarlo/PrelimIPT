@@ -46,7 +46,7 @@ class AuthController extends Controller
         Mail::send('verification-email', ['user'=>$user], function($mail) use ($user){
             $mail->to($user->email);
             $mail->subject('Account Verification');
-            $mail->from('glennmatarlo21@gmail.com', 'iMAiL');
+            $mail->from('glennmatarlo21@gmail.com', 'GDMOTORS');
         });
 
         Nexmo::message()->send([
